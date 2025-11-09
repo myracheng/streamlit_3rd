@@ -644,6 +644,7 @@ def survey_page():
             mark_assignment_completed(r.get('item_id'))
 
         st.session_state.page = "thanks"
+        st.rerun()
         
         
 
