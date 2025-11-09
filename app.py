@@ -319,7 +319,7 @@ def consent_page():
     st.write("""
     **Study purpose.** You are invited to take part in a research study about how people evaluate AI-generated responses.
 
-    **What you’ll do.** You’ll write about a scenario, view several AI responses, select a preferred response, and leave comments. Approx. 3–7 minutes.
+    **What you’ll do.** You’ll view several AI responses to user prompts, select preferred responses, and leave comments. Approx. 3–7 minutes.
 
     **Risks/benefits.** Minimal risk; some scenarios could be mildly sensitive. You may skip anything you’d prefer not to answer.
 
@@ -670,6 +670,11 @@ def main():
         st.session_state.prolific_pid = ""
         st.session_state.session_id = ""
         st.session_state.page = "consent"
+    query_params = st.query_params
+    st.session_state.prolific_pid = query_params.get("PROLIFIC_PID", ["anon"])
+    st.session_state.session_id = query_params.get("SESSION_ID", ["none"])
+    # st.session_state.prolific_pid = ""
+    # st.session_state.session_id = ""
 
     df = load_dataset()
 
