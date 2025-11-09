@@ -314,12 +314,24 @@ def init_state():
 # ==============================
 def consent_page():
     st.title("Consent")
-    st.markdown("""
-By proceeding, you confirm that:
-- Participation is voluntary and anonymous.
-- You are at least 18 years old.
-- You agree to provide your honest responses for research purposes.
+    
+    st.markdown("## Consent to Participate")
+    st.write("""
+    **Study purpose.** You are invited to take part in a research study about how people evaluate AI-generated responses.
+
+    **What you’ll do.** You’ll write about a scenario, view several AI responses, select a preferred response, and leave comments. Approx. 3–7 minutes.
+
+    **Risks/benefits.** Minimal risk; some scenarios could be mildly sensitive. You may skip anything you’d prefer not to answer.
+
+    **Compensation.** As listed on Prolific.
+
+    **Voluntary participation.** Your participation is voluntary. You may stop at any time.
+
+    **Data.** We collect your Prolific PID, your inputs, your selections/ratings, and timestamps. Data will be used for research and may be shared in aggregate/anonymized form.
+
+    **Contact/IRB.** If you have any questions, concerns or complaints about this research, its procedures, risks and benefits, contact the Protocol Director, Myra Cheng (myra@cs.stanford.edu)
     """)
+
     pid = st.text_input("Prolific PID (required)", value=st.session_state.prolific_pid)
     sid = st.text_input("Session ID (optional)", value=st.session_state.session_id)
     agree = st.checkbox("I have read and agree to the above.")
